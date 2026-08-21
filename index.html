@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Ladder</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>🪜 Word Ladder</h1>
+    <p class="subtitle">Change one letter at a time to climb from the start word to the target.</p>
+  </header>
+
+  <div class="controls">
+    <div class="length-toggle" role="group" aria-label="Word length">
+      <button class="len-btn active" data-len="4">4-letter</button>
+      <button class="len-btn" data-len="5">5-letter</button>
+    </div>
+    <button id="new-game" class="btn secondary">🔀 New Puzzle</button>
+  </div>
+
+  <div class="board">
+    <div class="targets">
+      <div class="word-card start">
+        <span class="label">Start</span>
+        <span id="start-word" class="word"></span>
+      </div>
+      <div class="arrow">→</div>
+      <div class="word-card target">
+        <span class="label">Target</span>
+        <span id="target-word" class="word"></span>
+      </div>
+    </div>
+
+    <div id="ladder" class="ladder"></div>
+
+    <form id="guess-form" class="guess-form" autocomplete="off">
+      <input id="guess-input" type="text" maxlength="6" placeholder="Type your next word..." aria-label="Next word" />
+      <button type="submit" class="btn primary">Submit</button>
+    </form>
+
+    <div id="message" class="message" aria-live="polite"></div>
+
+    <div class="stat-row">
+      <div class="stat"><span id="move-count">0</span><label>moves</label></div>
+      <div class="stat"><span id="par-count">-</span><label>par</label></div>
+      <div class="stat"><span id="best-count">-</span><label>best</label></div>
+    </div>
+
+    <div class="secondary-actions">
+      <button id="hint-btn" class="btn ghost">💡 Hint</button>
+      <button id="reveal-btn" class="btn ghost">🏳️ Reveal Solution</button>
+    </div>
+  </div>
+
+  <div id="win-overlay" class="overlay hidden">
+    <div class="win-card">
+      <h2>🎉 You made it!</h2>
+      <p id="win-detail"></p>
+      <button id="play-again" class="btn primary">Play Again</button>
+    </div>
+  </div>
+</div>
+
+<script src="dictionary.js"></script>
+<script src="puzzles.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
